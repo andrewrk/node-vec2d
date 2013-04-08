@@ -1,5 +1,5 @@
 var v = require('./')
-  , Vec2 = v.Vec2
+  , Vec2d = v.Vec2d
   , assert = require('assert')
 
 describe("v()", function() {
@@ -42,33 +42,33 @@ describe("v()", function() {
     }, /cannot parse/);
   });
 });
-describe("Vec2", function() {
+describe("Vec2d", function() {
   it("offset", function() {
-    var v1 = new Vec2(1, 2);
+    var v1 = new Vec2d(1, 2);
     var v2 = v1.offset(10, -10);
     v1.x = -100;
     assert.strictEqual(v2.x, 11);
     assert.strictEqual(v2.y, -8);
   });
   it("add", function() {
-    var v1 = new Vec2(1, 2);
-    var v2 = new Vec2(-1, -2);
+    var v1 = new Vec2d(1, 2);
+    var v2 = new Vec2d(-1, -2);
     var v3 = v1.add(v2);
     assert.strictEqual(v3, v1);
     assert.strictEqual(v1.x, 0);
     assert.strictEqual(v1.y, 0);
   });
   it("sub", function() {
-    var v1 = new Vec2(1, 2);
-    var v2 = new Vec2(-1, -2);
+    var v1 = new Vec2d(1, 2);
+    var v2 = new Vec2d(-1, -2);
     var v3 = v1.sub(v2);
     assert.strictEqual(v3, v1);
     assert.strictEqual(v1.x, 2);
     assert.strictEqual(v1.y, 4);
   });
   it("plus", function() {
-    var v1 = new Vec2(1, 2);
-    var v2 = new Vec2(-1, 0);
+    var v1 = new Vec2d(1, 2);
+    var v2 = new Vec2d(-1, 0);
     var v3 = v1.plus(v2);
     assert.strictEqual(v1.x, 1);
     assert.strictEqual(v1.y, 2);
@@ -78,8 +78,8 @@ describe("Vec2", function() {
     assert.strictEqual(v3.y, 2);
   });
   it("minus", function() {
-    var v1 = new Vec2(1, 2);
-    var v2 = new Vec2(-1, 0);
+    var v1 = new Vec2d(1, 2);
+    var v2 = new Vec2d(-1, 0);
     var v3 = v1.minus(v2);
     assert.strictEqual(v1.x, 1);
     assert.strictEqual(v1.y, 2);
@@ -89,31 +89,31 @@ describe("Vec2", function() {
     assert.strictEqual(v3.y, 2);
   });
   it("neg", function() {
-    var v1 = new Vec2(1, -2);
+    var v1 = new Vec2d(1, -2);
     var v2 = v1.neg();
     assert.strictEqual(v1, v2);
     assert.strictEqual(v1.x, -1);
     assert.strictEqual(v1.y, 2);
   });
   it("mult", function() {
-    var v1 = new Vec2(-1, 1);
-    var v2 = new Vec2(2, -3);
+    var v1 = new Vec2d(-1, 1);
+    var v2 = new Vec2d(2, -3);
     var v3 = v1.mult(v2);
     assert.strictEqual(v1, v3);
     assert.strictEqual(v3.x, -2);
     assert.strictEqual(v3.y, -3);
   });
   it("times", function() {
-    var v1 = new Vec2(-1, 1);
-    var v2 = new Vec2(2, -3);
+    var v1 = new Vec2d(-1, 1);
+    var v2 = new Vec2d(2, -3);
     var v3 = v1.times(v2);
     assert.notStrictEqual(v1, v3);
     assert.strictEqual(v3.x, -2);
     assert.strictEqual(v3.y, -3);
   });
   it("div", function() {
-    var v1 = new Vec2(6, 4);
-    var v2 = new Vec2(3, 2);
+    var v1 = new Vec2d(6, 4);
+    var v2 = new Vec2d(3, 2);
     var v3 = v1.div(v2);
     assert.strictEqual(v3, v1);
     assert.strictEqual(v1.x, 2);
