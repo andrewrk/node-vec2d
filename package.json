@@ -6,6 +6,10 @@
   "scripts": {
     "test": "mocha --reporter spec test.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/superjoe30/node-vec2d.git"
+  },
   "keywords": [
     "point"
   ],
