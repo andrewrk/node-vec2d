@@ -121,7 +121,17 @@ describe("Vec2d", function() {
     assert.strictEqual(v2.x, 3);
     assert.strictEqual(v2.y, 2);
   });
-  it("divBy");
+  it("divBy", function() {
+    var v1 = new Vec2d(6, 4);
+    var v2 = new Vec2d(3, 2);
+    var v3 = v1.divBy(v2);
+    assert.strictEqual(v1.x, 6);
+    assert.strictEqual(v1.y, 4);
+    assert.strictEqual(v3.x, 2);
+    assert.strictEqual(v3.y, 2);
+    assert.strictEqual(v2.x, 3);
+    assert.strictEqual(v2.y, 2);
+  });
   it("scale");
   it("scaled");
   it("clone");
@@ -142,7 +152,15 @@ describe("Vec2d", function() {
   it("ceiled");
   it("project");
   it("dot");
-  it("rotate");
+  it("rotate", function() {
+    var v1 = v(0, 1);
+    var v2 = v(1, 1);
+    var v3 = v2.rotate(v1);
+    assert.strictEqual(v3, v2);
+    assert.strictEqual(v2.x, -1);
+    assert.strictEqual(v2.y, 1);
+  });
+  it("rotated");
   it("distance");
   it("distanceSqrd");
 });
