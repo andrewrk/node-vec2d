@@ -77,9 +77,11 @@ More available functions are listed below in Test Coverage.
     - rotated
     - distance
     - distanceSqrd
+    ✓ reflect 
+    ✓ reflectAboutLine 
 
 
-  43 tests complete (10 ms)
+  45 tests complete (11 ms)
   23 tests pending
 ```
 

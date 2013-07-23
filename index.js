@@ -201,3 +201,22 @@ Vec2d.prototype.rotate = function(direction) {
 Vec2d.prototype.rotated = function(direction) {
   return this.clone().rotate(direction);
 };
+
+// reflect about axis originating from origin
+Vec2d.prototype.reflect = function(axis) {
+  return this.reflectAboutLine(new Vec2d(0, 0), axis);
+};
+
+Vec2d.prototype.reflectAboutLine = function(linePt1, linePt2) {
+  var normal = new Vec2d(
+      linePt2.x - linePt1.x,
+      linePt2.y - linePt1.x);
+  var temp = normal.x;
+  normal.x = -normal.y;
+  normal.y = temp;
+  normal.normalize();
+  var dot2 = 2 * this.dot(normal);
+  this.x -= dot2 * normal.x;
+  this.y -= dot2 * normal.y;
+  return this;
+};

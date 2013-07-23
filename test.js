@@ -45,15 +45,15 @@ describe("v()", function() {
   });
   it("unit", function() {
     var v1 = v.unit(Math.PI / 2);
-    assert.ok(Math.abs(0 - v1.x) < EPSILON);
-    assert.ok(Math.abs(1 - v1.y) < EPSILON);
+    assertCloseEnough(0, v1.x);
+    assertCloseEnough(1, v1.y);
   });
 });
 describe("Vec2d", function() {
   it("unit", function() {
     var v1 = Vec2d.unit(Math.PI);
-    assert.ok(Math.abs(-1 - v1.x) < EPSILON);
-    assert.ok(Math.abs(0 - v1.y) < EPSILON);
+    assertCloseEnough(-1, v1.x);
+    assertCloseEnough(0, v1.y);
   });
   it("offset", function() {
     var v1 = new Vec2d(1, 2);
@@ -175,4 +175,24 @@ describe("Vec2d", function() {
   it("rotated");
   it("distance");
   it("distanceSqrd");
+  it("reflect", function() {
+    var v1 = v(1, 0);
+    var axis = v(0, 1);
+    var v2 = v1.reflect(axis);
+    assert.strictEqual(v1.x, -1);
+    assert.strictEqual(v1.y, 0);
+  });
+  it("reflectAboutLine", function() {
+    var v1 = v(1, -1);
+    var linePt1 = v(1, 1);
+    var linePt2 = v(-1, -1);
+    var v2 = v1.reflectAboutLine(linePt1, linePt2);
+    assert.strictEqual(v2, v1);
+    assertCloseEnough(v1.x, -1);
+    assertCloseEnough(v1.y, 1);
+  });
 });
+
+function assertCloseEnough(a, b) {
+  assert.ok(Math.abs(a - b) < EPSILON);
+}
