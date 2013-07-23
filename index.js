@@ -1,11 +1,17 @@
 module.exports = v;
 v.Vec2d = Vec2d;
+v.unit = unitFromAngle;
+Vec2d.unit = unitFromAngle;
 
 var re = /\((-?[.\d]+), (-?[.\d]+)\)/;
 
 function Vec2d(x, y) {
   this.x = x;
   this.y = y;
+}
+
+function unitFromAngle(angle) {
+  return new Vec2d(Math.cos(angle), Math.sin(angle));
 }
 
 function v(xOrPair, y) {

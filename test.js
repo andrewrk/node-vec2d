@@ -1,6 +1,8 @@
 var v = require('./')
   , Vec2d = v.Vec2d
-  , assert = require('assert')
+  , assert = require('assert');
+
+var EPSILON = 0.000000000001;
 
 describe("v()", function() {
   it("no args", function() {
@@ -41,8 +43,18 @@ describe("v()", function() {
       return v("lol hax");
     }, /cannot parse/);
   });
+  it("unit", function() {
+    var v1 = v.unit(Math.PI / 2);
+    assert.ok(Math.abs(0 - v1.x) < EPSILON);
+    assert.ok(Math.abs(1 - v1.y) < EPSILON);
+  });
 });
 describe("Vec2d", function() {
+  it("unit", function() {
+    var v1 = Vec2d.unit(Math.PI);
+    assert.ok(Math.abs(-1 - v1.x) < EPSILON);
+    assert.ok(Math.abs(0 - v1.y) < EPSILON);
+  });
   it("offset", function() {
     var v1 = new Vec2d(1, 2);
     var v2 = v1.offset(10, -10);

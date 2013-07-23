@@ -39,8 +39,10 @@ More available functions are listed below in Test Coverage.
     ✓ string coords 
     ✓ deserialize 
     ✓ invalid deserialize 
+    ✓ unit 
 
   Vec2d
+    ✓ unit 
     ✓ offset 
     ✓ add 
     ✓ sub 
@@ -77,7 +79,7 @@ More available functions are listed below in Test Coverage.
     - distanceSqrd
 
 
-  41 tests complete (10 ms)
+  43 tests complete (10 ms)
   23 tests pending
 ```
 
