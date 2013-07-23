@@ -1,6 +1,6 @@
 # vec2d
 
-Node.js 2d vector library
+Node.js 2d vector library with robust unit tests.
 
 ## Usage
 
