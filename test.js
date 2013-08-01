@@ -144,26 +144,136 @@ describe("Vec2d", function() {
     assert.strictEqual(v2.x, 3);
     assert.strictEqual(v2.y, 2);
   });
-  it("scale");
-  it("scaled");
-  it("clone");
-  it("apply");
-  it("applied");
-  it("equals");
-  it("toString");
-  it("length");
-  it("lengthSqrd");
-  it("angle");
-  it("normalize");
-  it("normalized");
-  it("boundMin");
-  it("boundMax");
-  it("floor");
-  it("floored");
-  it("ceil");
-  it("ceiled");
+  it("scale", function() {
+    var v1 = new Vec2d(3, 4);
+    var v2 = v1.scale(2);
+    assert.strictEqual(v1, v2);
+    assert.strictEqual(v1.x, 6);
+    assert.strictEqual(v1.y, 8);
+  });
+  it("scaled", function() {
+    var v1 = new Vec2d(-3, 4);
+    var v2 = v1.scaled(-2);
+    assert.strictEqual(v1.x, -3);
+    assert.strictEqual(v1.y, 4);
+    assert.strictEqual(v2.x, 6);
+    assert.strictEqual(v2.y, -8);
+  });
+  it("clone", function() {
+    var v1 = new Vec2d(-1, 1);
+    var v2 = v1.clone();
+    v2.x += 1;
+    v2.y += 1;
+    assert.strictEqual(v1.x, -1);
+    assert.strictEqual(v1.y, 1);
+    assert.strictEqual(v2.x, 0);
+    assert.strictEqual(v2.y, 2);
+  });
+  it("apply", function() {
+    var v1 = new Vec2d(1.1, 2.2);
+    var v2 = v1.apply(Math.ceil);
+    assert.strictEqual(v1, v2);
+    assert.strictEqual(v2.x, 2);
+    assert.strictEqual(v2.y, 3);
+  });
+  it("applied", function() {
+    var v1 = new Vec2d(1.1, 2.2);
+    var v2 = v1.applied(Math.ceil);
+    assert.strictEqual(v1.x, 1.1);
+    assert.strictEqual(v1.y, 2.2);
+    assert.strictEqual(v2.x, 2);
+    assert.strictEqual(v2.y, 3);
+  });
+  it("equals", function() {
+    var v1 = new Vec2d(-0.3, 100);
+    var v2 = new Vec2d(-0.3, 100);
+    assert.strictEqual(v1.equals(v2), true);
+  });
+  it("toString", function() {
+    var v1 = new Vec2d(99, -1);
+    assert.strictEqual(v1.toString(), "(99, -1)");
+  });
+  it("length", function() {
+    var v1 = new Vec2d(3, 4);
+    assert.strictEqual(v1.length(), 5);
+  });
+  it("lengthSqrd", function() {
+    var v1 = new Vec2d(3, 4);
+    assert.strictEqual(v1.lengthSqrd(), 25);
+  });
+  it("angle", function() {
+    var v1 = new Vec2d(0, 1);
+    assert.strictEqual(v1.angle(), Math.PI / 2);
+  });
+  it("normalize", function() {
+    var v1 = new Vec2d(2, 2);
+    var v2 = v1.normalize();
+    assert.strictEqual(v1, v2);
+    assertCloseEnough(v2.x, 0.7071067811865475);
+    assertCloseEnough(v2.y, 0.7071067811865475);
+  });
+  it("normalized", function() {
+    var v1 = new Vec2d(10, 0);
+    var v2 = v1.normalized();
+    assert.strictEqual(v1.x, 10);
+    assert.strictEqual(v1.y, 0);
+    assert.strictEqual(v2.x, 1);
+    assert.strictEqual(v2.y, 0);
+  });
+  it("boundMin", function() {
+    var v1 = new Vec2d(13, 99);
+    var min = new Vec2d(20, 90);
+    var v2 = v1.boundMin(min);
+    assert.strictEqual(v1, v2);
+    assert.strictEqual(v2.x, 20);
+    assert.strictEqual(v2.y, 99);
+  });
+  it("boundMax", function() {
+    var v1 = new Vec2d(13, 99);
+    var max = new Vec2d(20, 90);
+    var v2 = v1.boundMax(max);
+    assert.strictEqual(v1, v2);
+    assert.strictEqual(v2.x, 13);
+    assert.strictEqual(v2.y, 90);
+  });
+  it("floor", function() {
+    var v1 = new Vec2d(-3.3, 9.9);
+    var v2 = v1.floor();
+    assert.strictEqual(v1, v2);
+    assert.strictEqual(v2.x, -4);
+    assert.strictEqual(v2.y, 9);
+  });
+  it("floored", function() {
+    var v1 = new Vec2d(-3.3, 9.9);
+    var v2 = v1.floored();
+    assert.strictEqual(v1.x, -3.3);
+    assert.strictEqual(v1.y, 9.9);
+    assert.strictEqual(v2.x, -4);
+    assert.strictEqual(v2.y, 9);
+  });
+  it("ceil", function() {
+    var v1 = new Vec2d(-3.3, 9.9);
+    var v2 = v1.ceil();
+    assert.strictEqual(v1, v2);
+    assert.strictEqual(v2.x, -3);
+    assert.strictEqual(v2.y, 10);
+  });
+  it("ceiled", function() {
+    var v1 = new Vec2d(-3.3, 9.9);
+    var v2 = v1.ceiled();
+    assert.strictEqual(v1.x, -3.3);
+    assert.strictEqual(v1.y, 9.9);
+    assert.strictEqual(v2.x, -3);
+    assert.strictEqual(v2.y, 10);
+  });
   it("project");
-  it("dot");
+  it("dot", function() {
+    var v1 = v(0, 1);
+    var v2 = v(1, 0);
+    var v3 = v(0, -1);
+    assert.strictEqual(v1.dot(v2), 0);
+    assert.strictEqual(v1.dot(v3), -1);
+  });
   it("rotate", function() {
     var v1 = v(0, 1);
     var v2 = v(1, 1);
@@ -172,9 +282,27 @@ describe("Vec2d", function() {
     assert.strictEqual(v2.x, -1);
     assert.strictEqual(v2.y, 1);
   });
-  it("rotated");
-  it("distance");
-  it("distanceSqrd");
+  it("rotated", function() {
+    var v1 = v(0, 1);
+    var v2 = v(1, 1);
+    var v3 = v2.rotated(v1);
+    assert.strictEqual(v1.x, 0);
+    assert.strictEqual(v1.y, 1);
+    assert.strictEqual(v2.x, 1);
+    assert.strictEqual(v2.y, 1);
+    assert.strictEqual(v3.x, -1);
+    assert.strictEqual(v3.y, 1);
+  });
+  it("distance", function() {
+    var v1 = v(-1, -1);
+    var v2 = v(2, 3);
+    assert.strictEqual(v1.distance(v2), 5);
+  });
+  it("distanceSqrd", function() {
+    var v1 = v(-1, -1);
+    var v2 = v(2, 3);
+    assert.strictEqual(v1.distanceSqrd(v2), 25);
+  });
   it("reflect", function() {
     var v1 = v(1, 0);
     var axis = v(0, 1);

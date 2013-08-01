@@ -53,36 +53,36 @@ More available functions are listed below in Test Coverage.
     ✓ times 
     ✓ div 
     ✓ divBy 
-    - scale
-    - scaled
-    - clone
-    - apply
-    - applied
-    - equals
-    - toString
-    - length
-    - lengthSqrd
-    - angle
-    - normalize
-    - normalized
-    - boundMin
-    - boundMax
-    - floor
-    - floored
-    - ceil
-    - ceiled
+    ✓ scale 
+    ✓ scaled 
+    ✓ clone 
+    ✓ apply 
+    ✓ applied 
+    ✓ equals 
+    ✓ toString 
+    ✓ length 
+    ✓ lengthSqrd 
+    ✓ angle 
+    ✓ normalize 
+    ✓ normalized 
+    ✓ boundMin 
+    ✓ boundMax 
+    ✓ floor 
+    ✓ floored 
+    ✓ ceil 
+    ✓ ceiled 
     - project
-    - dot
+    ✓ dot 
     ✓ rotate 
-    - rotated
-    - distance
-    - distanceSqrd
+    ✓ rotated 
+    ✓ distance 
+    ✓ distanceSqrd 
     ✓ reflect 
     ✓ reflectAboutLine 
 
 
-  45 tests complete (11 ms)
-  23 tests pending
+  45 tests complete (17 ms)
+  1 test pending
 ```
 
 More functions welcome in the form of pull requests.
