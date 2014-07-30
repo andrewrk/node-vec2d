@@ -16,6 +16,6 @@
   "author": "Andrew Kelley <superjoe30@gmail.com>",
   "license": "BSD",
   "devDependencies": {
-    "mocha": "~1.7.4"
+    "mocha": "~1.21.3"
   }
 }
