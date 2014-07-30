@@ -14,7 +14,7 @@
     "point"
   ],
   "author": "Andrew Kelley <superjoe30@gmail.com>",
-  "license": "BSD",
+  "license": "MIT",
   "devDependencies": {
     "mocha": "~1.21.3"
   }
