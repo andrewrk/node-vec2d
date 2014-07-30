@@ -1,8 +1,11 @@
-var v = require('./')
-  , Vec2d = v.Vec2d
-  , assert = require('assert');
+var v = require('./');
+var Vec2d = v.Vec2d;
+var assert = require('assert');
 
 var EPSILON = 0.000000000001;
+
+var describe = global.describe;
+var it = global.it;
 
 describe("v()", function() {
   it("no args", function() {
@@ -318,6 +321,12 @@ describe("Vec2d", function() {
     assert.strictEqual(v2, v1);
     assertCloseEnough(v1.x, -1);
     assertCloseEnough(v1.y, 1);
+  });
+  it("set", function() {
+    var v1 = v(1, 2);
+    v1.set(3, 4);
+    assert.strictEqual(v1.x, 3);
+    assert.strictEqual(v1.y, 4);
   });
 });
 

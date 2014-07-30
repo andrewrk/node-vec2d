@@ -79,10 +79,11 @@ More available functions are listed below in Test Coverage.
     ✓ distanceSqrd 
     ✓ reflect 
     ✓ reflectAboutLine 
+    ✓ set 
 
 
-  45 tests complete (17 ms)
-  1 test pending
+  45 passing (14ms)
+  1 pending
 ```
 
 More functions welcome in the form of pull requests.

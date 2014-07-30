@@ -220,3 +220,5 @@ Vec2d.prototype.reflectAboutLine = function(linePt1, linePt2) {
   this.y -= dot2 * normal.y;
   return this;
 };
+
+Vec2d.prototype.set = Vec2d;
